@@ -1,0 +1,35 @@
+
+spring:
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      enable-auto-commit: false
+      group-id: person-group-1
+      client-id: person-group-1
+      heartbeat-interval: 500
+      max-poll-records: 10
+      auto-offset-reset: earliest
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        session.timeout.ms: 10000
+        max.poll.interval.ms: 10000
+
+  r2dbc:
+    url: r2dbc:sqlserver://localhost:1433
+    name: PowerBiAcc
+    username: sa
+    password: reallyStrongPwd123
+    pool:
+      enabled: true
+      initial-size: 10
+      max-size: 20
+
+kafka:
+  topic:
+    name: person-topic-3
+
+logging:
+  level:
+    root: info
+server:
+  port: 8080
